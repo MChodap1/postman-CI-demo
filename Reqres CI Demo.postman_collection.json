@@ -1,0 +1,197 @@
+{
+	"info": {
+		"_postman_id": "6069245b-6868-4eed-87e9-4a514775fd8c",
+		"name": "Reqres CI Demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetAllUsers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "878d830d-fd40-45c9-8317-09c5e8fe37dc",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users?page=2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSingleUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "78cbcad4-bfbc-4aa6-aaeb-104cc9806d65",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users/2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUserNotFound",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5077a6ce-53ca-4ff9-83f8-e7f702c9408f",
+						"exec": [
+							"tests[\"Status code is 404\"] = responseCode.code === 404;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users/23",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"23"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e90e2c2c-430d-4772-9310-b8816b42927a",
+						"exec": [
+							"tests[\"Status code is 201\"] = responseCode.code === 201;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"name\":\"morpheus\",\r\n   \"job\":\"leader\"\r\n}"
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "00beb16f-2ae7-47ca-a8eb-5560f6258cfe",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"morpheus\",\r\n    \"job\": \"zion resident\"\r\n}"
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users/2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
